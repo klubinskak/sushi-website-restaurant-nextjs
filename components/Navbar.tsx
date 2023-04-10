@@ -3,21 +3,26 @@ import React, { useState } from "react";
 import Image from "next/image";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { AiOutlineClose } from "react-icons/ai";
+import { useScrollPosition } from "../hooks/useScrollPosition";
+
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const scrollPosition = useScrollPosition();
+
+
 
   return (
-    <div className=" text-white p-12">
-      <ul className="hidden md:flex justify-around">
+    <nav className={`${scrollPosition > 80 ? 'bg-black' : ''} sticky z-40 p-10 top-0 pt-10 pb-6 text-white bg-black-100`}>
+      <ul className="sticky top-0 justify-around hidden md:flex">
         <Link href="/">
-          <li className="text-sm">HomePage</li>
+          <li className="text-sm hover:text-[#495057]">Home</li>
         </Link>
-        <Link href="#restaurants">
-          <li className="text-sm">Restaurants</li>
+        <Link href="/#restaurants">
+          <li className="text-sm hover:text-[#495057]">Restaurants</li>
         </Link>
-        <Link href="#todays-offers">
-          <li className="text-sm">Today's Offers</li>
+        <Link href="/#todays-offers">
+          <li className="text-sm hover:text-[#495057]">Today's Offers</li>
         </Link>
         <Link href="/">
           <Image
@@ -28,17 +33,17 @@ const Navbar = () => {
             className="mt-[-20px]"
           />
         </Link>
-        <Link href="#contact-us">
-          <li className="text-sm">Contact Us</li>
+        <Link href="/#contact-us">
+          <li className="text-sm hover:text-[#495057]">Contact Us</li>
         </Link>
-        <Link href="#about-us">
-          <li className="text-sm">About Us</li>
+        <Link href="/#about-us">
+          <li className="text-sm hover:text-[#495057]">About Us</li>
         </Link>
-        <Link href="#how-we-work">
-          <li className="text-sm">How we work?</li>
+        <Link href="/news">
+          <li className="text-sm hover:text-[#495057]">News</li>
         </Link>
       </ul>
-      <div className="flex md:hidden justify-between items-center">
+      <div className="flex items-center justify-between md:hidden">
         <Image
           src="/logo-sushi.png"
           width={90}
@@ -59,7 +64,7 @@ const Navbar = () => {
         )}
         </button>
       </div>
-    </div>
+    </nav>
   );
 };
 

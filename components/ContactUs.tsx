@@ -1,13 +1,38 @@
-import React from 'react'
+import React from "react";
+import ContactForm from "./ContactForm";
+import GoogleMap from "./GoogleMap";
+import { motion } from "framer-motion";
+import { textAnimate } from "../utils/motion";
 
-const ContactUs = () => {
+const Contact = () => {
   return (
-   <section id="contact-us" className="h-[100vh] space-x-5 p-12 mx-10">
-    <div>
-        <h1 className="text-white">Contact Us</h1>
-    </div>
-   </section>
-  )
-}
+    <section id="contact-us" className="p-10">
+      <motion.div
+        initial={"offscreen"}
+        whileInView={"onscreen"}
+        viewport={{ once: false, amount: 0.5 }}
+        transition={{ staggerChildren: 0.5 }}
+        className="flex flex-col items-center w-full"
+        id="contact"
+      >
+        <h1 className="p-5 text-2xl font-semibold text-white">Contact Us</h1>
+        <motion.div
+          variants={textAnimate}
+          className="flex flex-col items-center justify-center w-full p-8 space-x-12 space-y-7 lg:flex-row"
+        >
+          <div className="md:flex items-center justify-center md:space-x-[150px]">
+            <div className="space-y-2 text-center sm:text-left">
+              <p className="py-2 mt-10 font-bold text-white md:mt-0">
+                Send me a message{" "}
+              </p>
+              <ContactForm />
+            </div>
+          </div>
+          <GoogleMap />
+        </motion.div>
+      </motion.div>
+    </section>
+  );
+};
 
-export default ContactUs
+export default Contact;
