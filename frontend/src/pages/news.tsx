@@ -17,7 +17,7 @@ const news = ({posts}: any) => {
     <div className="bg-black">
     <div className="w-full h-auto bg-black">
         <Navbar number={0}/>
-      <div className="h-auto grid grid-cols-2 z-[-10]">
+      <div className="h-auto grid grid-cols-2 z-[-10] place-items-center">
       <div className="p-10 space-y-4 text-white">
         <div>
         <Image src="/sushi-1.png" width={600} height={300} alt="sushi-1" />
