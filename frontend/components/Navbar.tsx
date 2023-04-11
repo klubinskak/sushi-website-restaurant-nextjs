@@ -17,7 +17,9 @@ const Navbar = ({number}: any) => {
       } sticky z-40 p-10 top-0 pt-10 pb-6 text-white bg-black-100`}
     >
       <div className="flex items-center justify-between md:hidden">
+      <Link href="/">
         <Image src="/logo-sushi.png" width={90} height={50} alt="logo1" />
+      </Link>
         <button
           onClick={() => {
             setIsOpen(!isOpen);
@@ -63,7 +65,7 @@ const Navbar = ({number}: any) => {
 
       <ul className={`${
         isOpen ? 'block': 'hidden'
-      } flex flex-col z-10 items-center w-full h-[100vh] text-md space-y-5 py-12 text-white bg-black md:hidden`}>        
+      } flex flex-col z-10 items-center w-full h-[80vh] justify-center text-md space-y-5 py-12 text-white bg-black md:hidden`}>        
       <Link href="/">
           <li className="text-md hover:text-[#495057]" onClick={() => setIsOpen(false)}>Home</li>
         </Link>

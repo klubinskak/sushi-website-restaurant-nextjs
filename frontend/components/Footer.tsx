@@ -6,7 +6,7 @@ import Link from "next/link";
 
 function Footer() {
   return (
-    <div>
+    <div className="h-auto">
       <div className="flex items-center justify-center pt-10">
         <hr className="w-[30%]" />
       </div>
@@ -15,7 +15,7 @@ function Footer() {
       <Link target="_blank" href="https://instagram.com"><div className="p-2 bg-white rounded-full"><AiFillInstagram color="black" size={25}/></div></Link>
       </div>
       <p className="pt-2 text-center text-white">All rights reserved.</p>
-      <p className="pb-10 text-center text-white ">&copy; Harumi</p>
+      <p className="pt-10 pb-12 text-center text-white ">&copy; Harumi</p>
     </div>
   );
 }
