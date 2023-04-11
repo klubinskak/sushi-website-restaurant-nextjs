@@ -6,7 +6,7 @@ import "pure-react-carousel/dist/react-carousel.es.css";
 
 export default function Index() {
     return (
-        <div className="w-full h-auto px-12 bg-black ">
+        <div className="w-full h-auto px-12">
             <div className="flex items-center justify-center w-full h-full px-4 py-24 sm:py-8">
                 {/* Carousel for desktop and large size devices */}
                 <CarouselProvider className="hidden lg:block" naturalSlideWidth={100} naturalSlideHeight={100} isIntrinsicHeight={true} totalSlides={8} visibleSlides={4} step={1} infinite={true}>

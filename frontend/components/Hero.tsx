@@ -1,14 +1,6 @@
 import React from "react";
-import { motion, Variants } from "framer-motion";
-
-const textAnimate = {
-  offscreen: { y: 100, opacity: 0 },
-  onscreen: {
-    y: 0,
-    opacity: 1,
-    transition: { type: "spring", bounce: 0.4, duration: 1 },
-  },
-};
+import { motion } from "framer-motion";
+import { textAnimate } from "../utils/motion";
 
 const Hero = () => {
   return (
