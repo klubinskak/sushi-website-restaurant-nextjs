@@ -5,14 +5,15 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import { AiOutlineClose } from "react-icons/ai";
 import { useScrollPosition } from "../hooks/useScrollPosition";
 
-const Navbar = () => {
+
+const Navbar = ({number}: any) => {
   const [isOpen, setIsOpen] = useState(false);
   const scrollPosition = useScrollPosition();
 
   return (
     <nav
       className={`${
-        scrollPosition > 80 ? "bg-black" : "" || isOpen ? "bg-black" : ""
+        scrollPosition > number ? "bg-black" : "" || isOpen ? "bg-black" : ""
       } sticky z-40 p-10 top-0 pt-10 pb-6 text-white bg-black-100`}
     >
       <div className="flex items-center justify-between md:hidden">

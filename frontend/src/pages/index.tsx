@@ -20,7 +20,7 @@ export default function Home() {
       <div className="w-full ">
         <div className="bg-black">
           <div className="bg-[url('/background.jpg')] bg-cover bg-no-repeat">
-            <Navbar/>
+            <Navbar number={80}/>
             <Hero />
             <Carousel />
           </div>
