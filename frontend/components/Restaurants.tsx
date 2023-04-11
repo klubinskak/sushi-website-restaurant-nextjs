@@ -42,7 +42,7 @@ const Restaurants = () => {
       id="restaurants"
       className="w-full h-auto py-8 text-center text-white "> 
         <h1 className="p-5 text-2xl font-semibold text-white">Restaurants</h1>
-      <div className="grid grid-cols-2 gap-4 place-items-center">
+      <div className="grid grid-cols-1 gap-4 md:grid-cols-2 place-items-center">
       {restaurant.map((item) => {
         return (
           <div className="p-8 place-items-center">
