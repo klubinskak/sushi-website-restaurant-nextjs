@@ -8,11 +8,11 @@ export default {
         type: 'string',
         title: 'Title'
       },
-      // {
-      //   name: 'image',
-      //   type: 'image',
-      //   title: 'Image'
-      // }, 
+      {
+        name: 'image',
+        type: 'image',
+        title: 'Image'
+      }, 
       {
         name: 'subtitle',
         type: 'string',
