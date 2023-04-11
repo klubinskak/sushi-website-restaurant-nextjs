@@ -2,7 +2,7 @@ import { useRouter } from 'next/router'
 import {createClient, groq} from 'next-sanity'
 
 
-const Post = ({ blog, profile }) => {
+const Post = ({ blog, profile }: any) => {
   const router = useRouter()
 
   return (<>
