@@ -7,7 +7,7 @@ import {
   useToast,
 } from "@chakra-ui/react";
 import React, { useState } from "react";
-import { sendContactForm } from "../lib/api";
+import { sendContactForm } from "../src/lib/api";
 
 const initialState = {
   name: "",

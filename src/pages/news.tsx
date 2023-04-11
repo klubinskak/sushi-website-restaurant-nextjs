@@ -3,7 +3,7 @@ import Navbar from '../../components/Navbar'
 import Footer from '../../components/Footer'
 import {createClient} from '@sanity/client'
 import { groq } from 'next-sanity'
-import { getClient } from '../../lib/sanity.server'
+import { getClient } from '../lib/sanity.server'
 
 
 
