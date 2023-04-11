@@ -1,8 +1,13 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 import { transporter } from '../../../config/nodemailer';
+import { Options } from "nodemailer/lib/mailer";
+
 var hbs = require('nodemailer-express-handlebars');
 
 const path = require ("path");
+
+type ExtendedOptions = Options & { template: string, context: Record<string, unknown> };
+
 
 const handlebarOptions = {
   viewEngine: {
@@ -27,7 +32,7 @@ export default async function handler (
     }
 
     try{
-      await transporter.sendMail({
+      const options: ExtendedOptions = {
         from: data.email,
         to: "klubinskaklaudia@gmail.com",
         subject: data.subject,
@@ -39,7 +44,8 @@ export default async function handler (
           message: data.message
         },
         // html: `<h1>Message from: ${data.name}</h1><p>${data.message}</p>`
-      })
+      }
+      await transporter.sendMail(options)
     }catch(error: any ) {
       console.log(error);
       return res.status(400).json({ message: error.message })
