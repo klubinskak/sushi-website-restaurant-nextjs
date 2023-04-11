@@ -17,7 +17,7 @@ const Navbar = ({number}: any) => {
       } sticky z-40 p-10 top-0 pt-10 pb-6 text-white bg-black-100`}
     >
       <div className="flex items-center justify-between md:hidden">
-        <Image src="/logo-sushi.png" width={90} height={50} alt="logo" />
+        <Image src="/logo-sushi.png" width={90} height={50} alt="logo1" />
         <button
           onClick={() => {
             setIsOpen(!isOpen);

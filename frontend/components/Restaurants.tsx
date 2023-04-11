@@ -45,7 +45,7 @@ const Restaurants = () => {
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2 place-items-center">
       {restaurant.map((item) => {
         return (
-          <div className="p-8 place-items-center">
+          <div className="p-8 place-items-center" key={item.id}>
             <Image src={item.image} alt={item.id} width={550} height={50} className="rounded h-[250px] hover:scale-105 duration-500 ease-in-out"/>
             <div className="flex flex-col items-center justify-center p-2 space-y-3">
               <h2 className="text-xl text-fontbold">{item.name}</h2>
