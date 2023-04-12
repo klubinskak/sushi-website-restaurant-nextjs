@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react'
 import Navbar from '../../components/Navbar'
 import Footer from '../../components/Footer'
-import {createClient} from '@sanity/client'
 import { groq } from 'next-sanity'
 import { getClient } from '../lib/sanity.server'
 import Image from "next/image";
@@ -44,19 +43,16 @@ const news = ({posts}: any) => {
 
 
 
-export const getStaticProps = async ({ preview = false}) => {
-  const posts = await getClient(preview).fetch(groq`
-    *[_type == "articles" | order(publishedAt desc)] {
-     _id,
-     title,
-     publishedAt,
-    'slug': slug.current,
-    body
-     }`)
-  return {
+export async function getServerSideProps() {
+  // Fetch data from external API
+  const res = await fetch(`https://.../data`)
+  const data = await res.json()
+
+  // Pass data to the page via props
+  return { 
     props: {
-      posts,
-    },
+      posts: data
+    } 
   }
 }
 
