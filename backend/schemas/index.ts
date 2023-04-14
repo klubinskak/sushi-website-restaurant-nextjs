@@ -1,5 +1,4 @@
-import articles from "./article";
+import post from './post'
 
-export const schemaTypes = [
-  articles
-]
+
+export const schemaTypes = [post]

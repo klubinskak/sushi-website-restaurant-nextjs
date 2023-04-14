@@ -18,7 +18,7 @@ const AboutUs = () => {
       >
         <motion.div
           variants={textAnimate}
-          className="flex flex-col text-center w-[400px] "
+          className="flex flex-col text-center w-[400px] space-y-5 "
         >
           <p className="text-center">🍱</p>
           <p className="text-xs text-white">

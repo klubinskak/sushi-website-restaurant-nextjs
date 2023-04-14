@@ -1,5 +1,5 @@
 {
-  "name": "wheat-rabbit",
+  "name": "sushi-blog",
   "private": true,
   "version": "1.0.0",
   "main": "package.json",
@@ -15,13 +15,7 @@
     "sanity"
   ],
   "dependencies": {
-    "@portabletext/react": "^2.0.2",
-    "@sanity/client": "^5.4.2",
-    "@sanity/icons": "^2.1.0",
-    "@sanity/image-url": "^1.0.2",
-    "@sanity/ui": "^1.2.0",
     "@sanity/vision": "^3.0.0",
-    "next-sanity": "^4.1.6",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-is": "^18.2.0",
