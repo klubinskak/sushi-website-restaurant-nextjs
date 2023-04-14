@@ -18,7 +18,7 @@ const Contact = () => {
         <h1 className="p-5 text-2xl font-semibold text-white">Contact Us</h1>
         <motion.div
           variants={textAnimate}
-          className="flex flex-col items-center justify-center w-full p-8 space-x-12 space-y-7 lg:flex-row"
+          className="flex flex-col items-center justify-center w-full space-x-12 md:p-8 space-y-7 lg:flex-row"
         >
           <div className="md:flex items-center justify-center md:space-x-[150px]">
             <div className="space-y-2 text-center sm:text-left">
@@ -28,8 +28,10 @@ const Contact = () => {
               <ContactForm />
             </div>
           </div>
-          <GoogleMap />
         </motion.div>
+        <div className="pt-10">
+          <GoogleMap />
+          </div>
       </motion.div>
     </section>
   );

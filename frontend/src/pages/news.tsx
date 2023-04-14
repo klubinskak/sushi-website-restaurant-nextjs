@@ -1,59 +1,63 @@
-import React, { useEffect } from 'react'
-import Navbar from '../../components/Navbar'
-import Footer from '../../components/Footer'
-import { groq } from 'next-sanity'
-import { getClient } from '../lib/sanity.server'
+import React from "react";
+import Navbar from "../../components/Navbar";
+import Footer from "../../components/Footer";
+import { groq } from "next-sanity";
+import { client } from "../lib/sanity";
+import imageUrlBuilder from "@sanity/image-url";
 import Image from "next/image";
-import Link from 'next/link'
+import Link from "next/link";
+import { Posts } from "../../typing.d";
 
+const builder = imageUrlBuilder(client);
 
+interface Props {
+  data: Posts[];
+}
 
-const news = ({posts}: any) => {
-  console.log(posts);
-
-  
+const news = ({ data }: Props) => {
   return (
     <div className="bg-black">
-    <div className="w-full h-auto bg-black">
-        <Navbar number={0}/>
-      <div className="h-auto grid grid-cols-2 z-[-10] place-items-center">
-      <div className="p-10 space-y-4 text-white">
-        <div>
-        <Image src="/sushi-1.png" width={600} height={300} alt="sushi-1" />
+      <div className="w-full h-auto bg-black">
+        <Navbar number={0} />
+        <div className="h-auto grid grid-cols-2 z-[-10] place-items-center">
+          {data.map((item) => {
+            return (
+              <div key={item.title} className="p-10 space-y-4 text-white">
+                <div>
+                  <Image
+                    src={builder?.image(item.image).url()}
+                    width={600}
+                    height={300}
+                    alt="sushi-1"
+                  />
+                </div>
+                <h3 className="py-2">8/04/2023</h3>
+                <h1>{item.title}</h1>
+                <Link
+                  href={`/news/${encodeURIComponent(item.title)}`}
+                  className="underline"
+                >
+                  Read More
+                </Link>
+              </div>
+            );
+          })}
+        </div>
       </div>
-      <h3 className="py-2">8/04/2023</h3>
-      <h1>Harumi Promotion Video</h1>
-      <Link href="" className="underline">Read More</Link>
-      </div>
-
-      <div className="p-10 space-y-4 text-white">
-        <div>
-        <Image src="/sushi-2.jpg" width={600} height={300} alt="sushi-2" />
-      </div>
-      <h3 className="py-2">8/04/2023</h3>
-      <h1>Harumi Promotion Video</h1>
-      <Link href="" className="underline">Read More</Link>
-      </div>
-      </div>
+      <Footer />
     </div>
-    <Footer/>
-    </div>
-  )
-}
+  );
+};
 
+const query = groq`*[_type == "post"]{
+  title, 
+  image
+}`;
 
+export const getServerSideProps = async () => {
+  const data = await client.fetch(query);
 
-export async function getServerSideProps() {
-  // Fetch data from external API
-  const res = await fetch(`https://.../data`)
-  const data = await res.json()
+  return { props: { data } };
+};
 
-  // Pass data to the page via props
-  return { 
-    props: {
-      posts: data
-    } 
-  }
-}
-
-export default news
+export default news;
