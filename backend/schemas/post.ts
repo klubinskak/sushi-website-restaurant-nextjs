@@ -11,9 +11,20 @@ export default defineType({
       type: "string",
     },
     {
+      name: "slug",
+      title: "Slug",
+      type: "string",
+    },
+    {
       name: "image",
       title: "Image",
       type: "image",
     },
+    {
+      title: 'Content', 
+      name: 'content',
+      type: 'array', 
+      of: [{type: 'block'}]
+    }
   ],
 })

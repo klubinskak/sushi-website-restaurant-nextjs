@@ -4,9 +4,9 @@ import Footer from "../../components/Footer";
 import { groq } from "next-sanity";
 import { client } from "../lib/sanity";
 import imageUrlBuilder from "@sanity/image-url";
-import Image from "next/image";
 import Link from "next/link";
 import { Posts } from "../../typing.d";
+import OptimizedImage from "../../components/Image";
 
 const builder = imageUrlBuilder(client);
 
@@ -24,18 +24,17 @@ const news = ({ data }: Props) => {
             return (
               <div key={item.title} className="p-10 space-y-4 text-white">
                 <div>
-                  <Image
-                    src={builder?.image(item.image).url()}
-                    width={600}
-                    height={300}
-                    alt="sushi-1"
+                  <OptimizedImage
+                    image_url={builder?.image(item.image).url()}
+                    name={item.title} 
                   />
                 </div>
                 <h3 className="py-2">8/04/2023</h3>
                 <h1>{item.title}</h1>
                 <Link
-                  href={`/news/${encodeURIComponent(item.title)}`}
+                  href={`/news/${encodeURIComponent(item.slug)}`}
                   className="underline"
+                  shallow
                 >
                   Read More
                 </Link>
@@ -51,10 +50,11 @@ const news = ({ data }: Props) => {
 
 const query = groq`*[_type == "post"]{
   title, 
+  slug,
   image
 }`;
 
-export const getServerSideProps = async () => {
+export const getStaticProps = async () => {
   const data = await client.fetch(query);
 
   return { props: { data } };

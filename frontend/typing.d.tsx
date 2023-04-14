@@ -1,4 +1,7 @@
 export interface Posts {
     title: string,
-    image: string,
+    slug: string,
+    image: {
+    },
+    content: array[]
 }

@@ -18,7 +18,8 @@ const Navbar = ({number}: any) => {
     >
       <div className="flex items-center justify-between md:hidden">
       <Link href="/">
-        <Image src="/logo-sushi.png" width={90} height={50} alt="logo1" />
+        <Image src="/logo-sushi.png" width={90} height={50} alt="logo1" className="w-[100px] h-[70px]"
+ />
       </Link>
         <button
           onClick={() => {
@@ -49,7 +50,7 @@ const Navbar = ({number}: any) => {
             width={90}
             height={50}
             alt="logo"
-            className="mt-[-20px]"
+            className="mt-[-20px] w-[100px] h-[70px]"
           />
         </Link>
         <Link href="/#contact-us">
@@ -81,7 +82,7 @@ const Navbar = ({number}: any) => {
         <Link href="/#about-us">
           <li className="text-md hover:text-[#495057]" onClick={() => setIsOpen(false)}>About Us</li>
         </Link>
-        <Link href="/news">
+        <Link href="/news" shallow>
           <li className="text-md hover:text-[#495057]" onClick={() => setIsOpen(false)}>News</li>
         </Link>
       </ul>
