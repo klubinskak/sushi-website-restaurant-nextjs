@@ -54,7 +54,7 @@ const query = groq`*[_type == "post"]{
   image
 }`;
 
-export const getStaticProps = async () => {
+export const getServerSideProps = async () => {
   const data = await client.fetch(query);
 
   return { props: { data } };

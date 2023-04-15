@@ -12,9 +12,9 @@ function OptimizedImage({image_url, name}: Props) {
       priority
         src={image_url}
         alt={name}
-        width={500}
+        width={600}
         height={400}
-        className="w-[500px] h-[400px]"
+        className="w-[600px] h-[400px]"
         blurDataURL="URL"
         placeholder="blur"
       />
