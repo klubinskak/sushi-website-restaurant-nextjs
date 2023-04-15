@@ -34,7 +34,7 @@ export default async function handler (
     try{
       const options: ExtendedOptions = {
         from: data.email,
-        to: "klubinskaklaudia@gmail.com",
+        to: process.env.EMAIL,
         subject: data.subject,
         template: 'email',
         context: {
