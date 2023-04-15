@@ -1,6 +1,5 @@
 # sushi-website-restaurant-nextjs
-Website created for sushi restaurant. 🍱
-
+🍱 Full stack website created with: 
 <ul>
 <li>ReactTS</li>
 <li>TailwindCSS</li>
