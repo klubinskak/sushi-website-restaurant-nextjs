@@ -1,7 +1,6 @@
 // ./src/lib/sanity.client.ts
 
 import {createClient} from 'next-sanity'
-import createImageUrlBuilder from '@sanity/image-url'
 import { config } from './config'
 
 
@@ -18,4 +17,3 @@ export const client = createClient({
     token: process.env.NEXT_PUBLIC_SANITY_TOKEN
 })
 
-export const urlFor = ( source: any ) => createImageUrlBuilder(config).image(source)
